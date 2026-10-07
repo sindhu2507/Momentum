@@ -26,7 +26,7 @@ function Signup() {
             setLoading(true);
 
             const response = await fetch(
-                "http://momentum-q6m6.onrender.com/api/auth/register",
+                "https://momentum-q6m6.onrender.com/api/auth/register",
                 {
                     method: "POST",
                     headers: {

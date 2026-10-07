@@ -28,19 +28,19 @@ import "./Profile.css";
 
 const PROFILE_API =
 
-    "http://momentum-q6m6.onrender.com/api/auth/me";
+    "https://momentum-q6m6.onrender.com/api/auth/me";
 
 
 
 const UPDATE_PROFILE_API =
 
-    "http://momentum-q6m6.onrender.com/api/auth/update-profile";
+    "https://momentum-q6m6.onrender.com/api/auth/update-profile";
 
 
 
 const PASSWORD_API =
 
-    "http://momentum-q6m6.onrender.com/api/auth/change-password";
+    "https://momentum-q6m6.onrender.com/api/auth/change-password";
 
 
 
