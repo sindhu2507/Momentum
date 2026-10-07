@@ -18,7 +18,7 @@ function Login() {
 
         try {
             const response = await fetch(
-                "s//momentum-q6m6.onrender.com/api/auth/login",
+                "https//momentum-q6m6.onrender.com/api/auth/login",
                 {
                     method: "POST",
                     headers: {
