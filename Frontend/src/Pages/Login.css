@@ -1,0 +1,433 @@
+/* =========================================================
+   MOMENTUM LOGIN PAGE
+   Split-screen authentication design
+========================================================= */
+
+.login-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  background: #ffffff;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+/* =========================================================
+   LEFT SIDE
+========================================================= */
+
+.login-left {
+  width: 68%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: linear-gradient(
+    135deg,
+    #050505 0%,
+    #111111 45%,
+    #3a3a3a 100%
+  );
+  color: #ffffff;
+}
+
+/* Subtle background effect */
+
+.login-left::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  top: -220px;
+  left: -180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.035);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.login-left::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -180px;
+  bottom: -200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+/* =========================================================
+   MOMENTUM BRAND
+========================================================= */
+
+.login-brand {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(58px, 7vw, 105px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -4px;
+}
+
+/* Tagline */
+
+.login-tagline {
+  position: relative;
+  z-index: 1;
+  margin: 28px 0 0;
+  color: #b8b8b8;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+}
+
+/* =========================================================
+   RIGHT SIDE
+========================================================= */
+
+.login-right {
+  width: 32%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 45px;
+  box-sizing: border-box;
+  background: #f5f5f5;
+}
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+.login-right .login-box {
+  width: 100%;
+  max-width: 390px;
+  padding: 38px 34px;
+  box-sizing: border-box;
+  text-align: left;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.04);
+  animation: loginFadeIn 0.45s ease both;
+}
+
+/* =========================================================
+   LOGIN TITLE
+========================================================= */
+
+.login-right .title {
+  margin: 0;
+  color: #171717;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+}
+
+/* Subtitle */
+
+.login-subtitle {
+  margin: 9px 0 26px;
+  color: #8a8a8a;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.login-right .input-field {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 0 0 13px;
+  padding: 13px 14px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #222222;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.login-right .input-field::placeholder {
+  color: #a0a0a0;
+  opacity: 1;
+}
+
+.login-right .input-field:hover {
+  border-color: #c7c7c7;
+}
+
+.login-right .input-field:focus {
+  border-color: #555555;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.login-right .error-message {
+  margin: 2px 0 13px;
+  color: #dc2626;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.login-right .login-btn {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding: 13px 15px;
+  border: 1px solid #171717;
+  border-radius: 8px;
+  background: #171717;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.login-right .login-btn:hover {
+  background: #333333;
+  border-color: #333333;
+}
+
+.login-right .login-btn:active {
+  transform: scale(0.99);
+}
+
+.login-right .login-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================================
+   SIGNUP LINK
+========================================================= */
+
+.login-right .bottom-text {
+  margin: 19px 0 0;
+  text-align: center;
+  color: #888888;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.login-right .signup-link {
+  color: #171717;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.login-right .signup-link:hover {
+  color: #666666;
+  text-decoration: underline;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+.login-left .login-brand,
+.login-left .login-tagline {
+  animation: loginSlideIn 0.6s ease both;
+}
+
+.login-left .login-tagline {
+  animation-delay: 0.08s;
+}
+
+@keyframes loginFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes loginSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+  .login-left {
+    width: 62%;
+    padding: 55px;
+  }
+
+  .login-right {
+    width: 38%;
+    padding: 30px;
+  }
+
+  .login-brand {
+    font-size: 68px;
+  }
+
+  .login-tagline {
+    font-size: 16px;
+  }
+
+  .login-right .login-box {
+    padding: 32px 27px;
+  }
+
+  .login-right .title {
+    font-size: 28px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .login-container {
+    min-height: 100vh;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .login-left {
+    width: 100%;
+    min-height: 34vh;
+    padding: 45px 30px;
+    justify-content: center;
+  }
+
+  .login-brand {
+    font-size: 54px;
+    letter-spacing: -2.5px;
+  }
+
+  .login-tagline {
+    margin-top: 17px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .login-right {
+    width: 100%;
+    min-height: 66vh;
+    padding: 40px 25px;
+    align-items: flex-start;
+  }
+
+  .login-right .login-box {
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 32px 27px;
+  }
+
+  .login-right .title {
+    font-size: 27px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .login-left {
+    min-height: 30vh;
+    padding: 35px 25px;
+  }
+
+  .login-brand {
+    font-size: 45px;
+  }
+
+  .login-tagline {
+    font-size: 13px;
+  }
+
+  .login-right {
+    min-height: 70vh;
+    padding: 30px 20px;
+  }
+
+  .login-right .login-box {
+    padding: 28px 21px;
+    border-radius: 14px;
+  }
+
+  .login-right .title {
+    font-size: 25px;
+  }
+
+  .login-right .input-field {
+    padding: 12px 13px;
+  }
+
+  .login-right .login-btn {
+    padding: 12px 14px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .login-container *,
+  .login-container *::before,
+  .login-container *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

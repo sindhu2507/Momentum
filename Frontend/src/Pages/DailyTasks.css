@@ -1,0 +1,1562 @@
+/* =========================================================
+   MOMENTUM - DAILY TASKS
+========================================================= */
+
+:root {
+
+    --primary: #525866;
+    --primary-dark: #343a46;
+
+    --bg: #f7f8fa;
+    --card-bg: #ffffff;
+
+    --text-main: #252a34;
+    --text-light: #737b88;
+
+    --border: #e6e8ec;
+
+    --font-main:
+        "Inter",
+        sans-serif;
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+
+    width: 100%;
+    height: 100%;
+
+    font-family:
+        var(--font-main);
+
+    background:
+        var(--bg);
+
+    color:
+        var(--text-main);
+
+    overflow: hidden;
+}
+
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        #d1d5db;
+
+    border-radius:
+        20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        #b8bdc5;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main-layout {
+
+    width: 100%;
+    min-height: 100vh;
+
+    overflow: hidden;
+}
+
+.home {
+
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+
+    width: 100%;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding:
+        0 24px;
+
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    border-bottom:
+        1px solid #e6e8ec;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+.nav-left {
+
+    display: flex;
+    align-items: center;
+
+    gap: 26px;
+}
+
+
+.home-logo {
+
+    font-size: 22px;
+    font-weight: 800;
+
+    letter-spacing:
+        -0.7px;
+
+    color:
+        #343a46;
+
+    white-space:
+        nowrap;
+}
+
+
+.nav-menu {
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.menu-btn {
+
+    text-decoration: none;
+
+    color:
+        #68707d;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    padding:
+        8px 11px;
+
+    border-radius:
+        8px;
+
+    transition:
+        all 0.2s ease;
+
+    white-space:
+        nowrap;
+}
+
+
+.menu-btn:hover {
+
+    color:
+        #252a34;
+
+    background:
+        #f5f6f7;
+}
+
+
+.menu-btn.active {
+
+    color:
+        #252a34;
+
+    background:
+        #ffffff;
+}
+
+
+.nav-right {
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.profile-link {
+    text-decoration: none;
+}
+
+
+.navbar-profile {
+
+    width: 33px;
+    height: 33px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        #454b57;
+
+    color:
+        #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   DAILY CONTROLS
+========================================================= */
+
+.daily-controls-row {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 10px;
+
+    padding:
+        10px 30px 14px;
+
+    background:
+        transparent;
+}
+
+
+/* =========================================================
+   MONTH / YEAR
+========================================================= */
+
+.month-selector-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    flex-shrink: 0;
+}
+
+
+.month-selector-group label {
+
+    padding-left: 2px;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    color:
+        #737b88;
+}
+
+
+.month-selector-group select {
+
+    width: 125px;
+    height: 39px;
+
+    padding:
+        0 28px 0 11px;
+
+    border:
+        1px solid #e2e5e9;
+
+    border-radius:
+        9px;
+
+    background:
+        #ffffff;
+
+    color:
+        #343a46;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+.month-selector-group select:hover {
+
+    border-color:
+        #c7ccd4;
+}
+
+
+.month-selector-group select:focus {
+
+    border-color:
+        #aeb4be;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(82, 88, 102, 0.07);
+}
+
+
+/* =========================================================
+   TIME INPUTS
+========================================================= */
+
+.daily-controls-row
+.time-input {
+
+    width: 145px;
+    max-width: 145px;
+
+    min-height: 39px;
+
+    flex-shrink: 0;
+
+    padding:
+        9px 12px;
+
+    border:
+        1px solid #e2e5e9;
+
+    border-radius:
+        9px;
+
+    background:
+        #ffffff;
+
+    color:
+        #303641;
+
+    font-size: 12px;
+
+    outline: none;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+.daily-controls-row
+.time-input:focus {
+
+    border-color:
+        #aeb4be;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(82, 88, 102, 0.07);
+}
+
+
+/* =========================================================
+   TASK INPUT
+========================================================= */
+
+.daily-controls-row
+.daily-task-input {
+
+    flex: 1;
+
+    width: auto;
+
+    min-width: 250px;
+
+    max-width: none;
+
+    min-height: 39px;
+
+    padding:
+        9px 12px;
+
+    border:
+        1px solid #e2e5e9;
+
+    border-radius:
+        9px;
+
+    background:
+        #ffffff;
+
+    color:
+        #303641;
+
+    font-size: 12px;
+
+    outline: none;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+.daily-controls-row
+.daily-task-input::placeholder {
+
+    color:
+        #8b919b;
+}
+
+
+.daily-controls-row
+.daily-task-input:focus {
+
+    border-color:
+        #aeb4be;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(82, 88, 102, 0.07);
+}
+
+
+/* =========================================================
+   ADD BUTTON
+========================================================= */
+
+.daily-controls-row
+.daily-add-btn {
+
+    height: 39px;
+    min-height: 39px;
+
+    padding:
+        0 18px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius:
+        9px;
+
+    background:
+        #454b57;
+
+    color:
+        #ffffff;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+.daily-controls-row
+.daily-add-btn:hover {
+
+    background:
+        #303641;
+
+    box-shadow:
+        0 4px 12px
+        rgba(30, 35, 45, 0.12);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   EDIT BOX
+========================================================= */
+
+.daily-edit-box {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 10px;
+
+    padding:
+        10px 30px 14px;
+
+    background:
+        #fafbfc;
+
+    border-top:
+        1px solid #eef0f2;
+
+    border-bottom:
+        1px solid #eef0f2;
+}
+
+
+.edit-task-title {
+
+    padding-bottom:
+        11px;
+
+    color:
+        #525866;
+
+    font-size: 12px;
+    font-weight: 650;
+
+    white-space:
+        nowrap;
+}
+
+
+.daily-edit-box
+.time-input {
+
+    width: 145px;
+    max-width: 145px;
+
+    min-height: 39px;
+
+    padding:
+        9px 12px;
+
+    border:
+        1px solid #e2e5e9;
+
+    border-radius:
+        9px;
+
+    background:
+        #ffffff;
+
+    outline: none;
+}
+
+
+.daily-edit-box
+.daily-task-input {
+
+    flex: 1;
+
+    min-width: 250px;
+
+    min-height: 39px;
+
+    padding:
+        9px 12px;
+
+    border:
+        1px solid #e2e5e9;
+
+    border-radius:
+        9px;
+
+    background:
+        #ffffff;
+
+    outline: none;
+}
+
+
+.daily-save-btn,
+.daily-cancel-btn {
+
+    height: 39px;
+
+    padding:
+        0 16px;
+
+    border-radius:
+        9px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+.daily-save-btn {
+
+    border:
+        1px solid #454b57;
+
+    background:
+        #454b57;
+
+    color:
+        #ffffff;
+}
+
+
+.daily-save-btn:hover {
+
+    background:
+        #303641;
+}
+
+
+.daily-cancel-btn {
+
+    border:
+        1px solid #e1e4e8;
+
+    background:
+        #ffffff;
+
+    color:
+        #626a76;
+}
+
+
+.daily-cancel-btn:hover {
+
+    background:
+        #f5f6f7;
+}
+
+
+/* =========================================================
+   TABLE CARD
+========================================================= */
+
+.task-table-card {
+
+    padding:
+        0 24px 24px;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.table-wrapper {
+
+    width: 100%;
+
+    height:
+        calc(100vh - 145px);
+
+    overflow: auto;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid #e7e9ed;
+
+    border-radius:
+        12px;
+
+    box-shadow:
+        0 3px 12px
+        rgba(25, 30, 40, 0.035);
+
+    position: relative;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+table {
+
+    width:
+        max-content;
+
+    min-width:
+        max-content;
+
+    border-collapse:
+        separate;
+
+    border-spacing:
+        0;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+th {
+
+    position: sticky;
+
+    top: 0;
+
+    height:
+        52px;
+
+    padding:
+        8px 12px;
+
+    background:
+        #f8f9fa;
+
+    color:
+        #626a76;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    border-bottom:
+        1px solid #e7e9ed;
+
+    white-space:
+        nowrap;
+
+    z-index:
+        20;
+}
+
+
+/* =========================================================
+   TABLE CELLS
+========================================================= */
+
+td {
+
+    padding:
+        10px 12px;
+
+    color:
+        #343a46;
+
+    font-size:
+        12px;
+
+    text-align:
+        center;
+
+    border-bottom:
+        1px solid #eff0f2;
+
+    background:
+        #ffffff;
+}
+
+
+tbody tr:hover td {
+
+    background:
+        #fafbfc;
+}
+
+
+/* =========================================================
+   TIME COLUMN
+========================================================= */
+
+.time-cell {
+
+    width:
+        108px;
+
+    min-width:
+        108px;
+
+    font-weight:
+        600;
+}
+
+
+/* =========================================================
+   TASK COLUMN
+========================================================= */
+
+.task-cell {
+
+    width:
+        210px;
+
+    min-width:
+        210px;
+
+    text-align:
+        left;
+
+    font-weight:
+        500;
+
+    overflow:
+        visible !important;
+}
+
+
+.task-cell-content {
+
+    width:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        8px;
+}
+
+
+.task-cell-content > span {
+
+    min-width:
+        0;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+    white-space:
+        nowrap;
+}
+
+
+/* =========================================================
+   STICKY FIRST COLUMN
+========================================================= */
+
+.task-table-card
+th:nth-child(1),
+
+.task-table-card
+td:nth-child(1) {
+
+    position:
+        sticky;
+
+    left:
+        0;
+
+    width:
+        108px;
+
+    min-width:
+        108px;
+
+    background:
+        #ffffff;
+
+    z-index:
+        30;
+}
+
+
+/* =========================================================
+   STICKY SECOND COLUMN
+========================================================= */
+
+.task-table-card
+th:nth-child(2),
+
+.task-table-card
+td:nth-child(2) {
+
+    position:
+        sticky;
+
+    left:
+        108px;
+
+    width:
+        108px;
+
+    min-width:
+        108px;
+
+    background:
+        #ffffff;
+
+    z-index:
+        30;
+}
+
+
+/* =========================================================
+   STICKY TASK COLUMN
+========================================================= */
+
+.task-table-card
+th:nth-child(3),
+
+.task-table-card
+td:nth-child(3) {
+
+    position:
+        sticky;
+
+    left:
+        216px;
+
+    width:
+        210px;
+
+    min-width:
+        210px;
+
+    background:
+        #ffffff;
+
+    overflow:
+        visible !important;
+
+    z-index:
+        40;
+}
+
+
+/* =========================================================
+   HEADER STICKY COLUMNS
+========================================================= */
+
+.task-table-card
+thead th:nth-child(1),
+
+.task-table-card
+thead th:nth-child(2),
+
+.task-table-card
+thead th:nth-child(3) {
+
+    background:
+        #f8f9fa;
+
+    z-index:
+        100;
+}
+
+
+/* =========================================================
+   DATE HEADER
+========================================================= */
+
+.date-number {
+
+    font-size:
+        11px;
+
+    font-weight:
+        650;
+
+    line-height:
+        14px;
+}
+
+
+.day-name {
+
+    font-size:
+        9px;
+
+    font-weight:
+        500;
+
+    color:
+        #7b828d;
+
+    line-height:
+        12px;
+}
+
+
+/* =========================================================
+   DATE BOX
+========================================================= */
+
+.date-box {
+
+    width:
+        24px;
+
+    height:
+        24px;
+
+    margin:
+        auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid #dfe3e8;
+
+    border-radius:
+        7px;
+
+    background:
+        #ffffff;
+
+    color:
+        #477052;
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        all 0.15s ease;
+}
+
+
+.date-box:hover {
+
+    border-color:
+        #aeb4be;
+}
+
+
+/* =========================================================
+   COMPLETED
+========================================================= */
+
+.date-box.checked {
+
+    background:
+        #e8f0ea;
+
+    border:
+        1px solid #d5e4d8;
+
+    color:
+        #477052;
+}
+
+
+/* =========================================================
+   MISSED
+========================================================= */
+
+.date-box.missed {
+
+    background:
+        #f8eeee;
+
+    border:
+        1px solid #ead6d6;
+
+    color:
+        #985858;
+}
+
+
+/* =========================================================
+   THREE DOT BUTTON
+========================================================= */
+
+.task-menu-wrapper {
+
+    position:
+        relative;
+
+    flex-shrink:
+        0;
+}
+
+
+.task-menu-btn {
+
+    width:
+        27px;
+
+    height:
+        27px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    border-radius:
+        6px;
+
+    background:
+        transparent;
+
+    color:
+        #737b88;
+
+    font-size:
+        18px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1;
+
+    cursor:
+        pointer;
+
+    transition:
+        all 0.15s ease;
+}
+
+
+.task-menu-btn:hover {
+
+    background:
+        #f0f1f3;
+
+    color:
+        #343a46;
+}
+
+
+/* =========================================================
+   FLOATING MENU
+
+   IMPORTANT:
+   This menu is position: fixed.
+   It is NOT inside the table.
+========================================================= */
+
+.floating-task-menu {
+
+    position:
+        fixed !important;
+
+    width:
+        130px;
+
+    padding:
+        5px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        2px;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid #e1e4e8;
+
+    border-radius:
+        9px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(20, 25, 35, 0.16);
+
+    z-index:
+        999999999 !important;
+}
+
+
+.floating-task-menu button {
+
+    width:
+        100%;
+
+    height:
+        36px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    padding:
+        0 10px;
+
+    border:
+        none;
+
+    border-radius:
+        6px;
+
+    background:
+        transparent;
+
+    color:
+        #454b57;
+
+    font-family:
+        var(--font-main);
+
+    font-size:
+        12px;
+
+    font-weight:
+        500;
+
+    text-align:
+        left;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.floating-task-menu
+button:hover {
+
+    background:
+        #f3f4f6;
+
+    color:
+        #252a34;
+}
+
+
+.floating-task-menu
+button:last-child {
+
+    color:
+        #8a5a5a;
+}
+
+
+.floating-task-menu
+button:last-child:hover {
+
+    background:
+        #faf1f1;
+
+    color:
+        #7d4444;
+}
+
+
+/* =========================================================
+   RESPONSIVE - 1100
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .daily-controls-row {
+
+        padding-left:
+            20px;
+
+        padding-right:
+            20px;
+    }
+
+
+    .daily-controls-row
+    .time-input {
+
+        width:
+            125px;
+
+        max-width:
+            125px;
+    }
+
+
+    .month-selector-group
+    select {
+
+        width:
+            115px;
+    }
+
+
+    .task-table-card {
+
+        padding-left:
+            18px;
+
+        padding-right:
+            18px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - 850
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .navbar {
+
+        height:
+            auto;
+
+        padding:
+            14px 16px;
+
+        gap:
+            12px;
+    }
+
+
+    .nav-left {
+
+        gap:
+            18px;
+    }
+
+
+    .menu-btn {
+
+        padding:
+            8px 10px;
+
+        font-size:
+            12px;
+    }
+
+
+    .daily-controls-row {
+
+        flex-wrap:
+            wrap;
+
+        align-items:
+            flex-end;
+
+        padding:
+            10px 16px 14px;
+    }
+
+
+    .daily-controls-row
+    .daily-task-input {
+
+        min-width:
+            220px;
+    }
+
+
+    .daily-edit-box {
+
+        flex-wrap:
+            wrap;
+
+        padding:
+            12px 16px;
+    }
+
+
+    .table-wrapper {
+
+        height:
+            calc(100vh - 220px);
+    }
+
+
+    .task-table-card {
+
+        padding:
+            0 16px 16px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE - 520
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .navbar {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+
+    .nav-left {
+
+        width:
+            100%;
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+
+    .nav-menu {
+
+        flex-wrap:
+            wrap;
+    }
+
+
+    .nav-right {
+
+        width:
+            100%;
+
+        justify-content:
+            flex-end;
+    }
+
+
+    .daily-controls-row {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        gap:
+            8px;
+    }
+
+
+    .daily-controls-row
+    .month-selector-group
+    select,
+
+    .daily-controls-row
+    .time-input,
+
+    .daily-controls-row
+    .daily-task-input,
+
+    .daily-controls-row
+    .daily-add-btn {
+
+        width:
+            100%;
+
+        max-width:
+            none;
+    }
+
+
+    .daily-edit-box {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+    }
+
+
+    .daily-edit-box
+    .time-input,
+
+    .daily-edit-box
+    .daily-task-input,
+
+    .daily-save-btn,
+
+    .daily-cancel-btn {
+
+        width:
+            100%;
+
+        max-width:
+            none;
+    }
+
+
+    .edit-task-title {
+
+        padding-bottom:
+            0;
+    }
+
+
+    .table-wrapper {
+
+        height:
+            calc(100vh - 300px);
+    }
+}

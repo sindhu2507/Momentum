@@ -1,0 +1,1119 @@
+/* =========================================================
+
+   MOMENTUM — ANALYTICS PAGE
+
+   Tasks + Daily Tasks Analytics
+
+========================================================= */
+
+:root {
+
+  --primary: #4b4b4b;
+
+  --primary-light: #f1f1f1;
+
+  --primary-dark: #000000;
+
+  --bg: #f7f8fa;
+
+  --white: #ffffff;
+
+  --text-main: #20242b;
+
+  --text-dark: #252a33;
+
+  --text-light: #737b87;
+
+  --text-muted: #9299a4;
+
+  --border: #e5e7eb;
+
+  --border-light: #edf0f4;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.03);
+
+  --shadow-md: 0 5px 18px rgba(15, 23, 42, 0.05);
+
+  --transition: all 0.2s ease;
+
+  --font-main: "Inter", sans-serif;
+
+}
+
+/* =========================================================
+
+   GLOBAL
+
+========================================================= */
+
+* {
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+}
+
+html,
+
+body,
+
+#root {
+
+  width: 100%;
+
+  min-height: 100%;
+
+  font-family: var(--font-main);
+
+  background: var(--bg);
+
+  color: var(--text-main);
+
+  overflow-x: hidden;
+
+}
+
+::-webkit-scrollbar {
+
+  width: 7px;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+  background: #d1d5db;
+
+  border-radius: 20px;
+
+}
+
+.main-layout {
+
+  width: 100%;
+
+  min-height: 100vh;
+
+}
+
+.home {
+
+  width: 100%;
+
+}
+
+/* =========================================================
+
+   NAVBAR
+
+========================================================= */
+
+.navbar {
+
+  width: 100%;
+
+  height: 50px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid var(--border);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 24px;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+
+}
+
+.nav-left {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+
+}
+
+.home-logo {
+
+  font-size: 22px;
+
+  font-weight: 750;
+
+  color: #374151;
+
+  letter-spacing: -0.7px;
+
+  white-space: nowrap;
+
+}
+
+.nav-menu {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+}
+
+.menu-btn {
+
+  text-decoration: none;
+
+  color: #626b78;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  padding: 8px 11px;
+
+  border-radius: 8px;
+
+  transition: var(--transition);
+
+  white-space: nowrap;
+
+}
+
+.menu-btn:hover {
+
+  color: #20242b;
+
+  background: #f3f4f6;
+
+}
+
+.menu-btn.active {
+
+  color: #20242b;
+
+  background: #ffffff;
+
+  font-weight: 600;
+
+}
+
+.nav-right {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+}
+
+.icon {
+
+  width: 33px;
+
+  height: 33px;
+
+  border-radius: 9px;
+
+  background: #fff;
+
+  border: 1px solid var(--border);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+
+}
+
+.icon:hover {
+
+  background: #f3f4f6;
+
+  border-color: #d1d5db;
+
+}
+
+.profile-img {
+
+  width: 34px;
+
+  height: 34px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  cursor: pointer;
+
+}
+
+/* =========================================================
+
+   PAGE
+
+========================================================= */
+
+.page-content {
+
+  padding: 25px 28px 35px;
+
+  min-height: calc(100vh - 50px);
+
+}
+
+.analytics-content {
+
+  width: 100%;
+
+  max-width: 1600px;
+
+  margin: 0 auto;
+
+}
+
+/* =========================================================
+
+   COMMON SECTION
+
+========================================================= */
+
+.tasks-analytics-section,
+
+.daily-analytics-section {
+
+  width: 100%;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  padding: 15px 15px;
+
+  box-shadow: var(--shadow-sm);
+
+}
+
+/* =========================================================
+
+   UPPER TASK SECTION
+
+========================================================= */
+
+.tasks-analytics-section {
+
+  margin-bottom: 5px;
+
+}
+
+.section-top {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 12px;
+
+}
+
+.analytics-section-title {
+
+  color: var(--text-main);
+
+  font-size: 20px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: -0.4px;
+
+}
+
+.analytics-section-subtitle {
+
+  color: var(--text-light);
+
+  font-size: 12px;
+
+  margin-top: 5px;
+
+}
+
+.selected-range-label {
+
+  color: var(--primary);
+
+  background: var(--primary-light);
+
+  padding: 6px 10px;
+
+  border-radius: 7px;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+
+}
+
+/* =========================================================
+
+   RANGE CONTROLS
+
+========================================================= */
+
+.analytics-controls {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+
+  flex-wrap: wrap;
+
+}
+
+.range-buttons {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  flex-wrap: wrap;
+
+}
+
+.range-btn {
+
+  height: 32px;
+
+  padding: 0 11px;
+
+  border: 1px solid #e1e5eb;
+
+  background: #fafbfc;
+
+  color: #737b87;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+
+}
+
+.range-btn:hover {
+
+  border-color: #cbd1dc;
+
+  background: #f5f6f8;
+
+  color: #374151;
+
+}
+
+.range-btn.active {
+
+  color: #ffffff;
+
+  background: var(--primary);
+
+  border-color: var(--primary);
+
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.10);
+
+}
+
+.selection-control {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-left: 2px;
+
+}
+
+.selection-label {
+
+  color: #858d99;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+}
+
+.analytics-input {
+
+  height: 32px;
+
+  min-width: 140px;
+
+  padding: 0 9px;
+
+  border: 1px solid #dfe4ec;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #374151;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  outline: none;
+
+  transition: var(--transition);
+
+}
+
+.analytics-input:focus {
+
+  border-color: #555555;
+
+  box-shadow:
+
+    0 0 0 3px rgba(0, 0, 0, 0.08);
+
+}
+
+.year-input {
+
+  width: 90px;
+
+  min-width: 90px;
+
+}
+
+/* =========================================================
+
+   FOUR PIE CHARTS — ONE ROW
+
+========================================================= */
+
+.task-pie-charts {
+
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+
+}
+
+/* =========================================================
+
+   PIE CARD
+
+========================================================= */
+
+.task-pie-card {
+
+  min-width: 0;
+
+  background: #ffffff;
+
+  border: 1px solid var(--border-light);
+
+  border-radius: 13px;
+
+  padding: 5px 5px 5px;
+
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.025);
+
+  transition: var(--transition);
+
+}
+
+.task-pie-card:hover {
+
+  border-color: #d9deea;
+
+  box-shadow: var(--shadow-md);
+
+  transform: translateY(-1px);
+
+}
+
+.task-pie-header {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 8px;
+
+  padding: 0 2px;
+
+}
+
+.task-pie-header h3 {
+
+  color: #303640;
+
+  font-size: 13px;
+
+  font-weight: 650;
+
+}
+
+.task-pie-total {
+
+  min-width: 25px;
+
+  height: 25px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 7px;
+
+  background: #f3f4f7;
+
+  color: #626b78;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+}
+
+.task-pie-wrapper {
+
+  width: 100%;
+
+  height: 190px;
+
+  margin-top: 3px;
+
+}
+
+/* =========================================================
+
+   EMPTY PIE
+
+========================================================= */
+
+.pie-empty {
+
+  width: 100%;
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 8px;
+
+}
+
+.pie-empty-circle {
+
+  width: 105px;
+
+  height: 105px;
+
+  border-radius: 50%;
+
+  border: 18px solid #edf0f4;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #9aa1ac;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+}
+
+.pie-empty span {
+
+  color: #9aa1ac;
+
+  font-size: 11px;
+
+}
+
+/* =========================================================
+
+   ERROR
+
+========================================================= */
+
+.analytics-error-box {
+
+  width: 100%;
+
+  padding: 14px;
+
+  border-radius: 9px;
+
+  background: #fff5f5;
+
+  border: 1px solid #fecaca;
+
+  color: #dc2626;
+
+  font-size: 12px;
+
+}
+
+/* =========================================================
+
+   LOWER DAILY TASK SECTION
+
+========================================================= */
+
+.daily-analytics-section {
+
+  padding-bottom: 22px;
+
+}
+
+.daily-chart-card {
+
+  width: 100%;
+
+  background: #ffffff;
+
+  border: 1px solid var(--border-light);
+
+  border-radius: 13px;
+
+  padding: 18px 20px 15px;
+
+}
+
+.daily-chart-header {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 8px;
+
+}
+
+.daily-chart-header h3 {
+
+  color: #303640;
+
+  font-size: 15px;
+
+  font-weight: 650;
+
+}
+
+.daily-chart-header p {
+
+  color: #858d99;
+
+  font-size: 11px;
+
+  margin-top: 4px;
+
+}
+
+.daily-completed-count {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 2px;
+
+}
+
+.daily-completed-count span {
+
+  color: #9299a4;
+
+  font-size: 10px;
+
+}
+
+.daily-completed-count strong {
+
+  color: #4b4b4b;
+
+  font-size: 20px;
+
+  line-height: 1;
+
+}
+
+.daily-line-chart {
+
+  width: 100%;
+
+  height: 350px;
+
+  min-width: 0;
+
+}
+
+.analytics-message {
+
+  height: 350px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #7b8492;
+
+  font-size: 13px;
+
+}
+
+.no-completions-note {
+
+  text-align: center;
+
+  color: #9299a4;
+
+  font-size: 11px;
+
+  margin-top: 3px;
+
+}
+
+/* =========================================================
+
+   RESPONSIVE
+
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .nav-left {
+
+    gap: 16px;
+
+  }
+
+  .menu-btn {
+
+    padding: 7px 9px;
+
+    font-size: 12px;
+
+  }
+
+  .page-content {
+
+    padding: 22px;
+
+  }
+
+  .task-pie-charts {
+
+    gap: 12px;
+
+  }
+
+  .task-pie-card {
+
+    padding-left: 10px;
+
+    padding-right: 10px;
+
+  }
+
+  .task-pie-wrapper {
+
+    height: 175px;
+
+  }
+
+}
+
+/* =========================================================
+
+   TABLET
+
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .task-pie-charts {
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  }
+
+  .task-pie-wrapper {
+
+    height: 190px;
+
+  }
+
+}
+
+/* =========================================================
+
+   MOBILE
+
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .navbar {
+
+    height: auto;
+
+    padding: 14px 16px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+  }
+
+  .nav-left {
+
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+  }
+
+  .nav-menu {
+
+    flex-wrap: wrap;
+
+    row-gap: 4px;
+
+  }
+
+  .nav-right {
+
+    width: 100%;
+
+    justify-content: flex-end;
+
+  }
+
+  .page-content {
+
+    padding: 18px 16px;
+
+  }
+
+  .section-top {
+
+    flex-direction: column;
+
+    gap: 8px;
+
+  }
+
+  .selected-range-label {
+
+    align-self: flex-start;
+
+  }
+
+  .analytics-controls {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+  }
+
+  .selection-control {
+
+    margin-left: 0;
+
+  }
+
+  .analytics-input {
+
+    min-width: 150px;
+
+  }
+
+  .daily-line-chart,
+
+  .analytics-message {
+
+    height: 320px;
+
+  }
+
+}
+
+/* =========================================================
+
+   SMALL MOBILE
+
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .home-logo {
+
+    font-size: 20px;
+
+  }
+
+  .menu-btn {
+
+    font-size: 12px;
+
+    padding: 7px 8px;
+
+  }
+
+  .page-content {
+
+    padding: 14px 12px;
+
+  }
+
+  .tasks-analytics-section,
+
+  .daily-analytics-section {
+
+    padding: 16px 13px;
+
+  }
+
+  .analytics-section-title {
+
+    font-size: 18px;
+
+  }
+
+  .range-buttons {
+
+    width: 100%;
+
+  }
+
+  .range-btn {
+
+    flex: 1;
+
+    min-width: 70px;
+
+  }
+
+  .selection-control {
+
+    width: 100%;
+
+  }
+
+  .analytics-input {
+
+    flex: 1;
+
+    width: auto;
+
+  }
+
+  .task-pie-charts {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .task-pie-wrapper {
+
+    height: 210px;
+
+  }
+
+  .daily-chart-card {
+
+    padding: 15px 10px 12px;
+
+  }
+
+  .daily-line-chart,
+
+  .analytics-message {
+
+    height: 280px;
+
+  }
+
+}

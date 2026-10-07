@@ -1,0 +1,308 @@
+/* =========================================================
+   MOMENTUM — TIMETABLE PAGE
+   Clean, minimal white / grey theme
+========================================================= */
+
+:root {
+  --bg: #f7f8fa;
+  --text-main: #20242b;
+  --text-light: #737b87;
+  --border: #e5e7eb;
+  --transition: all 0.2s ease;
+  --font-main: "Inter", sans-serif;
+}
+
+/* GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 20px;
+}
+
+.main-layout {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.home {
+  width: 100%;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  width: 100%;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.home-logo {
+  font-size: 22px;
+  font-weight: 750;
+  color: #374151;
+  letter-spacing: -0.7px;
+  white-space: nowrap;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.menu-btn {
+  text-decoration: none;
+  color: #626b78;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 11px;
+  border-radius: 8px;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.menu-btn:hover {
+  color: #20242b;
+  background: #f3f4f6;
+}
+
+.menu-btn.active {
+  color: #20242b;
+  background: #ffffff;
+  font-weight: 600;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* PROFILE */
+
+.profile-link {
+  text-decoration: none;
+}
+
+.navbar-profile {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ================= PAGE CONTENT ================= */
+
+.page-content {
+  min-height: calc(100vh - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* ================= TIMETABLE MESSAGE ================= */
+
+.timetable-message {
+  width: 430px;
+  padding: 24px 28px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  text-align: center;
+
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #737b87;
+}
+
+.timetable-message h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #30353d;
+  margin-bottom: 9px;
+}
+
+.timetable-message p {
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--text-light);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+  .nav-left {
+    gap: 16px;
+  }
+
+  .menu-btn {
+    padding: 7px 9px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 850px) {
+  .navbar {
+    height: auto;
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .nav-left {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+
+  .nav-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .page-content {
+    padding: 18px 16px;
+  }
+
+  .timetable-message {
+    width: 100%;
+    max-width: 430px;
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-logo {
+    font-size: 20px;
+  }
+
+  .menu-btn {
+    font-size: 12px;
+    padding: 7px 8px;
+  }
+
+  .page-content {
+    padding: 14px 12px;
+  }
+
+  .timetable-message {
+    padding: 22px 18px;
+    margin-top: 60px;
+  }
+
+  .timetable-message h3 {
+    font-size: 15px;
+  }
+
+  .timetable-message p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 850px) {
+  .navbar {
+    height: auto;
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .nav-left {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+
+  .nav-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .page-content {
+    min-height: calc(100vh - 130px);
+    padding: 18px 16px;
+  }
+
+  .timetable-message {
+    width: 100%;
+    max-width: 430px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-logo {
+    font-size: 20px;
+  }
+
+  .menu-btn {
+    font-size: 12px;
+    padding: 7px 8px;
+  }
+
+  .page-content {
+    padding: 14px 12px;
+  }
+
+  .timetable-message {
+    padding: 22px 18px;
+    font-size: 12px;
+  }
+}

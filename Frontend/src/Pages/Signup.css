@@ -1,0 +1,433 @@
+/* =========================================================
+   MOMENTUM SIGNUP PAGE
+   Split-screen authentication design
+========================================================= */
+
+.signup-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  background: #ffffff;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+/* =========================================================
+   LEFT SIDE
+========================================================= */
+
+.signup-left {
+  width: 68%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: linear-gradient(
+    135deg,
+    #050505 0%,
+    #111111 45%,
+    #3a3a3a 100%
+  );
+  color: #ffffff;
+}
+
+/* Subtle background effect */
+
+.signup-left::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  top: -220px;
+  left: -180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.035);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.signup-left::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -180px;
+  bottom: -200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+/* =========================================================
+   MOMENTUM BRAND
+========================================================= */
+
+.signup-brand {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(58px, 7vw, 105px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -4px;
+}
+
+/* Tagline */
+
+.signup-tagline {
+  position: relative;
+  z-index: 1;
+  margin: 28px 0 0;
+  color: #b8b8b8;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+}
+
+/* =========================================================
+   RIGHT SIDE
+========================================================= */
+
+.signup-right {
+  width: 32%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 45px;
+  box-sizing: border-box;
+  background: #f5f5f5;
+}
+
+/* =========================================================
+   SIGNUP CARD
+========================================================= */
+
+.signup-right .signup-box {
+  width: 100%;
+  max-width: 390px;
+  padding: 38px 34px;
+  box-sizing: border-box;
+  text-align: left;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.04);
+  animation: signupFadeIn 0.45s ease both;
+}
+
+/* =========================================================
+   CREATE ACCOUNT TITLE
+========================================================= */
+
+.signup-right .title {
+  margin: 0;
+  color: #171717;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+}
+
+/* Subtitle */
+
+.signup-subtitle {
+  margin: 9px 0 26px;
+  color: #8a8a8a;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.signup-right .input-field {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 0 0 13px;
+  padding: 13px 14px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #222222;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.signup-right .input-field::placeholder {
+  color: #a0a0a0;
+  opacity: 1;
+}
+
+.signup-right .input-field:hover {
+  border-color: #c7c7c7;
+}
+
+.signup-right .input-field:focus {
+  border-color: #555555;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.signup-right .error-message {
+  margin: 2px 0 13px;
+  color: #dc2626;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   SIGNUP BUTTON
+========================================================= */
+
+.signup-right .signup-btn {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding: 13px 15px;
+  border: 1px solid #171717;
+  border-radius: 8px;
+  background: #171717;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.signup-right .signup-btn:hover {
+  background: #333333;
+  border-color: #333333;
+}
+
+.signup-right .signup-btn:active {
+  transform: scale(0.99);
+}
+
+.signup-right .signup-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================================
+   LOGIN LINK
+========================================================= */
+
+.signup-right .bottom-text {
+  margin: 19px 0 0;
+  text-align: center;
+  color: #888888;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.signup-right .login-link {
+  color: #171717;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.signup-right .login-link:hover {
+  color: #666666;
+  text-decoration: underline;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+.signup-left .signup-brand,
+.signup-left .signup-tagline {
+  animation: signupSlideIn 0.6s ease both;
+}
+
+.signup-left .signup-tagline {
+  animation-delay: 0.08s;
+}
+
+@keyframes signupFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes signupSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+  .signup-left {
+    width: 62%;
+    padding: 55px;
+  }
+
+  .signup-right {
+    width: 38%;
+    padding: 30px;
+  }
+
+  .signup-brand {
+    font-size: 68px;
+  }
+
+  .signup-tagline {
+    font-size: 16px;
+  }
+
+  .signup-right .signup-box {
+    padding: 32px 27px;
+  }
+
+  .signup-right .title {
+    font-size: 28px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .signup-container {
+    min-height: 100vh;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .signup-left {
+    width: 100%;
+    min-height: 34vh;
+    padding: 45px 30px;
+    justify-content: center;
+  }
+
+  .signup-brand {
+    font-size: 54px;
+    letter-spacing: -2.5px;
+  }
+
+  .signup-tagline {
+    margin-top: 17px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .signup-right {
+    width: 100%;
+    min-height: 66vh;
+    padding: 40px 25px;
+    align-items: flex-start;
+  }
+
+  .signup-right .signup-box {
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 32px 27px;
+  }
+
+  .signup-right .title {
+    font-size: 27px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .signup-left {
+    min-height: 30vh;
+    padding: 35px 25px;
+  }
+
+  .signup-brand {
+    font-size: 45px;
+  }
+
+  .signup-tagline {
+    font-size: 13px;
+  }
+
+  .signup-right {
+    min-height: 70vh;
+    padding: 30px 20px;
+  }
+
+  .signup-right .signup-box {
+    padding: 28px 21px;
+    border-radius: 14px;
+  }
+
+  .signup-right .title {
+    font-size: 25px;
+  }
+
+  .signup-right .input-field {
+    padding: 12px 13px;
+  }
+
+  .signup-right .signup-btn {
+    padding: 12px 14px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .signup-container *,
+  .signup-container *::before,
+  .signup-container *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
