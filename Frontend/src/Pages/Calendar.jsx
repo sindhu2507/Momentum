@@ -42,8 +42,8 @@ import {
 
 import "./Calendar.css";
 
-const API_URL = "http://localhost:5000/api/tasks";
-const PROFILE_API = "http://localhost:5000/api/auth/me";
+const API_URL = "http://momentum-q6m6.onrender.com/api/tasks";
+const PROFILE_API = "http://momentum-q6m6.onrender.com/api/auth/me";
 
 /* =========================================================
 

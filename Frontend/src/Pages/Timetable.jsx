@@ -6,7 +6,7 @@ function TimeTable() {
     const [name, setName] = useState("");
     const [profileLoading, setProfileLoading] = useState(true);
 
-    const PROFILE_API = "http://localhost:5000/api/auth/me";
+    const PROFILE_API = "http://momentum-q6m6.onrender.com/api/auth/me";
 
     const getToken = () => {
         return localStorage.getItem("token");

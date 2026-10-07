@@ -30,11 +30,11 @@ import {
 
 import "./Analytics.css";
 
-const TASKS_API_URL = "http://localhost:5000/api/tasks";
+const TASKS_API_URL = "http://momentum-q6m6.onrender.com/api/tasks";
 
-const DAILY_TASKS_API_URL = "http://localhost:5000/api/daily-tasks";
+const DAILY_TASKS_API_URL = "http://momentum-q6m6.onrender.com/api/daily-tasks";
 
-const PROFILE_API = "http://localhost:5000/api/auth/me";
+const PROFILE_API = "http://momentum-q6m6.onrender.com/api/auth/me";
 
 const PIE_COLORS = ["#171717", "#d1d5db"];
 

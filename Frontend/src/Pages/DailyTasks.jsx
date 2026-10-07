@@ -170,10 +170,10 @@ function DailyTasks() {
     // ======================================================
 
     const API_URL =
-        "http://localhost:5000/api/daily-tasks";
+        "http://momentum-q6m6.onrender.com/api/daily-tasks";
 
     const PROFILE_API =
-        "http://localhost:5000/api/auth/me";
+        "http://momentum-q6m6.onrender.com/api/auth/me";
 
 
     // ======================================================
