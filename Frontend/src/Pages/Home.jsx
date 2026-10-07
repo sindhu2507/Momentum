@@ -19,7 +19,7 @@ import {
     CSS
 } from "@dnd-kit/utilities";
 import "./Home.css";
-const API_URL = "s//momentum-q6m6.onrender.com/api/tasks";
+const API_URL = "https://momentum-q6m6.onrender.com/api/tasks";
 const DAILY_TASKS_API_URL = "https://momentum-q6m6.onrender.com/api/daily-tasks";
 const PROFILE_API = "https://momentum-q6m6.onrender.com/api/auth/me";
 /* =========================================================
