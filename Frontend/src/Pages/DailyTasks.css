@@ -1560,3 +1560,638 @@ button:last-child:hover {
             calc(100vh - 300px);
     }
 }
+
+/* ==========================================
+   MOMENTUM MOBILE NAVIGATION
+   Logo on top, page names below, profile right
+========================================== */
+
+@media (max-width: 850px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 10px 12px 8px;
+    gap: 0;
+
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: none;
+  }
+
+  /* Logo row */
+  .nav-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 0;
+    gap: 7px;
+  }
+
+  .home-logo {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+
+    font-size: 22px;
+    line-height: 1.25;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+  }
+
+  /* Single horizontal row of page names */
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: calc(100% - 38px);
+    min-width: 0;
+    height: 36px;
+    gap: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-btn {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 9px;
+    margin: 0;
+
+    color: #626a76;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+
+    font-size: clamp(10px, 1.9vw, 12px);
+    font-weight: 600;
+    line-height: 1.3;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .menu-btn:hover,
+  .menu-btn.active {
+    color: #252a34;
+    background: transparent;
+  }
+
+  /* Profile stays on the far right of the navigation row */
+  .nav-right {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 36px;
+    padding: 0;
+    margin: 0;
+
+    background: #ffffff;
+    z-index: 2;
+  }
+
+  .profile-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  .navbar-profile {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    font-size: 12px;
+  }
+}
+
+/* Smaller mobile screens */
+@media (max-width: 380px) {
+  .navbar {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .home-logo {
+    font-size: 21px;
+  }
+
+  .nav-menu {
+    width: calc(100% - 34px);
+  }
+
+  .menu-btn {
+    padding-right: 7px;
+    padding-left: 7px;
+    font-size: 10px;
+  }
+
+  .nav-right {
+    right: 6px;
+  }
+}
+
+/* ==========================================
+   DAILY TASKS - COMPACT RESPONSIVE LAYOUT
+========================================== */
+
+/* Allow the page itself to scroll vertically */
+html,
+body,
+#root {
+  height: auto !important;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+}
+
+.main-layout,
+.home {
+  height: auto !important;
+  min-height: 100vh;
+  overflow: visible !important;
+}
+
+/* Remove the table's separate vertical scrollbar.
+   Preserve horizontal scrolling for dates. */
+.task-table-card {
+  padding: 0 12px 20px !important;
+  min-width: 0;
+}
+
+.table-wrapper {
+  height: auto !important;
+  max-height: none !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.table-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Reduce unnecessary space in the table */
+td {
+  padding: 7px 5px !important;
+}
+
+th {
+  padding: 6px 5px !important;
+}
+
+.time-cell {
+  width: 78px !important;
+  min-width: 78px !important;
+}
+
+.task-cell {
+  width: 155px !important;
+  min-width: 155px !important;
+}
+
+.task-table-card th:nth-child(1),
+.task-table-card td:nth-child(1) {
+  width: 78px !important;
+  min-width: 78px !important;
+}
+
+.task-table-card th:nth-child(2),
+.task-table-card td:nth-child(2) {
+  left: 78px !important;
+  width: 78px !important;
+  min-width: 78px !important;
+}
+
+.task-table-card th:nth-child(3),
+.task-table-card td:nth-child(3) {
+  left: 156px !important;
+  width: 155px !important;
+  min-width: 155px !important;
+}
+
+/* Compact, clearly visible completion marks */
+.date-box {
+  width: 23px !important;
+  height: 23px !important;
+  border-radius: 6px !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1 !important;
+  font-weight: 800 !important;
+  color: #477052 !important;
+}
+
+.date-box.checked {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #e1eee4 !important;
+  border: 1px solid #a8cbb0 !important;
+  color: #246b39 !important;
+}
+
+/* ==========================================
+   MOBILE: THREE INPUT ROWS
+========================================== */
+
+@media (max-width: 520px) {
+  .daily-controls-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 9px !important;
+    align-items: end !important;
+    padding: 12px !important;
+  }
+
+  /* Row 1: Month + Year */
+  .daily-controls-row > .month-selector-group:nth-child(1),
+  .daily-controls-row > .month-selector-group:nth-child(2) {
+    grid-row: 1;
+    min-width: 0;
+    width: 100%;
+  }
+
+  /* Row 2: Start time + End time */
+  .daily-controls-row > .time-input:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .daily-controls-row > .time-input:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  /* Row 3: Enter task + Add button */
+  .daily-controls-row > .daily-task-input:nth-child(5) {
+    grid-column: 1;
+    grid-row: 3;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .daily-controls-row > .daily-add-btn:nth-child(6) {
+    grid-column: 2;
+    grid-row: 3;
+    width: 100% !important;
+  }
+
+  .daily-controls-row .month-selector-group select,
+  .daily-controls-row .time-input {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 38px;
+  }
+
+  .daily-controls-row .daily-task-input,
+  .daily-controls-row .daily-add-btn {
+    min-height: 40px;
+  }
+
+  .task-table-card {
+    padding: 0 8px 16px !important;
+  }
+
+  .table-wrapper {
+    border-radius: 8px;
+  }
+
+  .task-cell-content {
+    gap: 3px !important;
+  }
+}
+
+/* Make Daily Tasks table more compact */
+.task-table-card {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+.table-wrapper table {
+  border-spacing: 0 !important;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+  padding: 6px 4px !important;
+}
+
+/* Reduce Start Time and End Time columns */
+.task-table-card th:nth-child(1),
+.task-table-card td:nth-child(1),
+.task-table-card th:nth-child(2),
+.task-table-card td:nth-child(2) {
+  width: 72px !important;
+  min-width: 72px !important;
+  max-width: 72px !important;
+}
+
+/* Reduce Task column width */
+.task-table-card th:nth-child(3),
+.task-table-card td:nth-child(3) {
+  width: 145px !important;
+  min-width: 145px !important;
+  max-width: 145px !important;
+}
+
+/* Bring task name and three-dot menu closer */
+.task-cell-content {
+  gap: 2px !important;
+  justify-content: space-between !important;
+}
+
+.task-cell-content > * {
+  min-width: 0;
+}
+
+.task-cell-content button {
+  padding: 2px !important;
+  margin: 0 !important;
+}
+
+/* Reduce spacing between date columns */
+.task-table-card th:nth-child(n + 4),
+.task-table-card td:nth-child(n + 4) {
+  width: 33px !important;
+  min-width: 33px !important;
+  max-width: 33px !important;
+  padding: 5px 2px !important;
+}
+
+/* Smaller checkboxes with clearly visible ticks */
+.date-box {
+  width: 23px !important;
+  height: 23px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+}
+
+/* Keep the first three columns aligned when scrolling */
+.task-table-card th:nth-child(1),
+.task-table-card td:nth-child(1) {
+  left: 0 !important;
+}
+
+.task-table-card th:nth-child(2),
+.task-table-card td:nth-child(2) {
+  left: 72px !important;
+}
+
+.task-table-card th:nth-child(3),
+.task-table-card td:nth-child(3) {
+  left: 144px !important;
+}
+/* MOBILE: Keep logo, navigation and profile on one line */
+@media (max-width: 850px) {
+  .navbar {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    padding: 10px 12px !important;
+    min-width: 0 !important;
+  }
+
+  .navbar h1,
+  .navbar .logo,
+  .navbar .brand {
+    font-size: 18px !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .navbar nav,
+  .navbar .nav-links,
+  .navbar .navigation {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+  }
+
+  .navbar nav::-webkit-scrollbar,
+  .navbar .nav-links::-webkit-scrollbar,
+  .navbar .navigation::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .navbar nav a,
+  .navbar .nav-links a,
+  .navbar .navigation a {
+    white-space: nowrap !important;
+    font-size: 11px !important;
+    padding: 4px 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .navbar img,
+  .navbar .profile,
+  .navbar .profile-image {
+    flex-shrink: 0 !important;
+  }
+}
+
+/* MOMENTUM: ALL NAVIGATION IN ONE LINE */
+@media (max-width: 850px) {
+  .navbar {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 3px !important;
+    width: 100% !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    padding: 4px 6px !important;
+    overflow: hidden !important;
+  }
+
+  .navbar .nav-left {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex: 1 1 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    gap: 8px !important;
+  }
+
+  .navbar .home-logo {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    margin: 0 !important;
+    font-size: clamp(12px, 2.7vw, 17px) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.5px !important;
+    white-space: nowrap !important;
+  }
+
+  .navbar .nav-menu {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .navbar .menu-btn {
+    flex: 0 1 auto !important;
+    padding: 4px 1px !important;
+    margin: 0 !important;
+    font-size: clamp(8px, 1.8vw, 11px) !important;
+    line-height: 1.1 !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    letter-spacing: -0.2px !important;
+    flex-shrink: 1 !important;
+  }
+
+  .navbar .nav-right {
+    position: static !important;
+    display: flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .navbar .profile-link {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+
+  .navbar .navbar-profile {
+    width: 27px !important;
+    height: 27px !important;
+    min-width: 27px !important;
+    font-size: 11px !important;
+    margin: 0 !important;
+  }
+}
+
+/* FINAL FIX: COMPACT MOBILE NAVBAR */
+@media screen and (max-width: 850px) {
+  nav.navbar {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 5px !important;
+    padding: 4px 5px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    overflow: hidden !important;
+  }
+
+  nav.navbar > .nav-left {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    flex: 1 1 auto !important;
+    gap: 5px !important;
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  nav.navbar .home-logo {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    font-size: 15px !important;
+    letter-spacing: -0.5px !important;
+    white-space: nowrap !important;
+  }
+
+  nav.navbar .nav-menu {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    gap: 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  nav.navbar .menu-btn {
+    display: inline-flex !important;
+    flex: 0 1 auto !important;
+    padding: 4px 0 !important;
+    margin: 0 !important;
+    font-size: clamp(8px, 2vw, 11px) !important;
+    letter-spacing: -0.3px !important;
+    white-space: nowrap !important;
+  }
+
+  nav.navbar > .nav-right {
+    position: static !important;
+    flex: 0 0 auto !important;
+    display: flex !important;
+    width: auto !important;
+    margin: 0 !important;
+  }
+
+  nav.navbar .navbar-profile {
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+  }
+}
+
